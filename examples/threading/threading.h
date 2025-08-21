@@ -7,20 +7,23 @@
  * It should be returned by your thread so it can be freed by
  * the joiner thread.
  */
-struct thread_data{
+typedef struct {
     /*
      * TODO: add other values your thread will need to manage
      * into this structure, use this structure to communicate
      * between the start_thread_obtaining_mutex function and
      * your thread implementation.
      */
-
+    pthread_t thread; 
+    pthread_mutex_t mutex; 
+    int time_for_obtaining_mutex_ms; 
+    int time_for_releasing_mutex_ms; 
     /**
      * Set to true if the thread completed with success, false
      * if an error occurred.
      */
     bool thread_complete_success;
-};
+}thread_data;
 
 
 /**
